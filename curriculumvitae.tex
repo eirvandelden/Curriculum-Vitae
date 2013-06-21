@@ -1,0 +1,123 @@
+\documentclass[a4paper, article, 10pt]{memoir}                                  % A c.v. is more of an article than a book
+\usepackage{a4wide}                                                             % Use smaller margins to increase the amount of information per page
+\usepackage{soul}                                                               % Use a pacakge to use a full caps font
+%\usepackage{titlesec}
+\usepackage{marvosym}                                                           % Add extra symbols
+\usepackage{tabularx,colortbl,multirow}                                         % Add packages related to tables
+\usepackage[usenames,dvipsnames,hyperref]{xcolor}                               % Use colors, make them available by name
+
+
+% COLOURS
+\definecolor{mygray}{gray}{.90}                                                 % Use 90% gray in the tables
+\definecolor{myblue}{rgb}{0,0.43,0.67}                                          % Use my blue colour for the title
+
+
+% COMMANDS
+\newcommand{\gray}{\rowcolor[gray]{.90}}                                        % Shorthand to switch a row to gray coloured background
+\newcommand{\heading}[2]{                                                       % New command to create custom sections: fake the full caps font with a bold face. Using two arguments (the first for a single letter in a different font size) as looking how to automatically convert to caps in LaTeX takes too much time
+    \section{
+        {\fontsize{18}{\lineskip}\textbf{#1}}{\fontsize{12}{\lineskip}\textbf{#2}}}
+        }
+
+
+% PAGE STYLE: myCV
+\makepagestyle{myCV}
+\makeevenfoot{myCV}{}{\so{Weldam, 6 - 5655JG, Eindhoven, the Netherlands}\\     % Define Verso footer
+    \so{ {\Large\Letter} eirvandelden@me.com \ {\Large\Telefon} +31 (0)6 18 24 38 12}
+    }{}
+\makeoddfoot{myCV}{}{\so{Weldam, 6 - 5655JG, Eindhoven, the Netherlands}\\      % Define Recto footer
+    \so{ {\Large\Letter} eirvandelden@me.com \ {\Large\Telefon} +31 (0)6 18 24 38 12}
+    }{}
+
+\pagestyle{myCV}                                                                % Switch to myCV pagestyle
+
+
+% SECTION STYLE: myCVSec
+\newcommand{\myCVSec}[1]{
+    \noindent
+    \parbox[t]{\textwidth}{\large\bfseries #1\hrule}
+    }
+
+\setsecheadstyle{\myCVSec}
+
+% MISCELLANEOUS
+\setcounter{secnumdepth}{0}                                                     % Remove section numbers from sections
+
+
+% DOCUMENT
+\begin{document}
+\textsc{\color{myblue} \HUGE{\so{Etienne van Delden}}} \vspace{2ex}             % Fake a blue title in all caps
+
+
+    % EXPERIENCES
+    \heading{E}{XPERIENCES}
+        \begin{tabularx}{0.97\linewidth}{>{\raggedleft\scshape}p{2.5cm}X}
+            \gray Period    & \textbf{August 2011 --- January 2012}\\
+            \gray Employer  & \textbf{Sorama} \hfill Eindhoven, The Netherlands\\
+            \gray Job Title & \textbf{Project Member}\\ %TODO: Replace by something more fitting
+                            & In this internship we created a web portal (client, server and services) that allowed the user to control Sorama's Sound Scanner and analyse and visualise the result.\\
+            \gray Period    & \textbf{September 2008 --- September 2009}\\
+            \gray Employer  & \textbf{J.C.E.S. Kinjin} \hfill Eindhoven, The Netherlands\\
+            \gray Job Title & \textbf{Chairman}\\
+                            & As chairman of a board of six students, we organised traditional and modern Japanese activities for our like minded members\\
+        \gray Period        & \textbf{July 2004 --- December 2006}\\
+        \gray Employer      & \textbf{Apple Centre YouMac} \hfill Eindhoven, The Netherlands\\
+        \gray Job Title     & \textbf{Salesman}\\
+                            & Advise customers on the advantages and capabilities of Apple products; offer small repairs and on the spot service. I also set up, and was trainer, of the ``Maak kennis met de Mac'' workshop.\\
+        \gray Period        & \textbf{Augustus 2004 --- June 2006}\\
+        \gray Employer      & \textbf{Het Augustinianum} \hfill Eindhoven, The Netherlands\\
+        \gray Job Title     & \textbf{Theatrical Engineer}\\
+                            & My high school `Augustinianum' uses real, authentic, theatrical equipment for their plays, and I designed, connected and controlled both light and sound experience.\\
+
+
+        \end{tabularx}
+
+
+    \heading{S}{KILLS}
+%        \newcommand{\gray}{\rowcolor[gray]{.90}}
+        \begin{tabularx}{0.97\linewidth}{>{\raggedleft\scshape}p{2.5cm}X}
+         \gray Computer \mbox{Languages} & C\#, Python, Objective-C, \LaTeX, Haskell, (Object) Pascal\\
+         Technologies & Silverlight 4, XNA 4.0, MySQL/SQLite3, Cocoa, MVVM \\
+         \gray Operating Systems & Mac OS X $9.2.2-10.8$, Mac OS X Server $10.5-10.7$, iOS $2.0 - 5.1$, Windows 2000/XP/Vista/7, Various Linux distributions \\
+
+        \end{tabularx}
+
+    
+    \heading{E}{DUCATION}        
+    \begin{tabularx}{0.97\linewidth}{>{\raggedleft\scshape}p{2.5cm}X}
+        2006-present & \textbf{University of Technology Eindhoven} \\[.5ex]
+        & {\small Studying the bachelor study `Computer Science and Engineering', with a minor in `Human Technology Interaction.' Planning to do a master in `Human Technology Interaction'}\\
+        & \emph{Notable courses} Software Specification, Software Testing, Algorithms, Computer Networks, Databases, Human Perception \& Performance \\[2ex]
+        2000-2006   & \textbf{Augustininum} \\
+        & {\small Graduated on `VWO' level in the profiles `Natuur\&Techniek' and `Natuur\&Gezondheid'}\\
+    \end{tabularx}
+    
+    \newpage
+    \heading{P}{UBLICATIONS}
+    \begin{tabularx}{0.97\linewidth}{>{\raggedleft\scshape}p{2.5cm}X}
+          April 2011 & \emph{``Emotional Adaptive Gaming: Gaming Profiles''} \\[.5ex]
+    \end{tabularx}
+    
+    
+    \section{{\fontsize{18}{\lineskip}\textbf{P}}{\fontsize{12}{\lineskip}\textbf{ERSONAL}} {\fontsize{18}{\lineskip}\textbf{I}}{\fontsize{12}{\lineskip}\textbf{NFO}}}
+    \begin{tabularx}{0.97\linewidth}{>{\raggedleft\scshape}p{2.5cm}X}
+           & Born in Eindhoven, the Netherlands on the 29th of Febuary, 1988.\\
+           & Present citizenship: Nederlandse\\
+           & Martial status: single
+           
+    \end{tabularx}
+    
+    
+    \heading{L}{ANGUAGES}
+    \begin{tabularx}{0.97\linewidth}{>{\raggedleft\scshape}p{2.5cm}X}
+          & Dutch (native), English (fluent)
+    \end{tabularx}
+    
+    
+    \heading{I}{NTERESTS}
+    \begin{tabularx}{0.97\linewidth}{>{\raggedleft\scshape}p{2.5cm}X}
+          & Ballroom and Latin dancing (international competitions), Wushu Kung Fu (international competitions), music, reading, software technologies, gadgets, human factors, presenting,≤ typesetting with \LaTeX\footnote{this curriculum was created with \LaTeX}
+    \end{tabularx}
+    
+
+\end{document}
